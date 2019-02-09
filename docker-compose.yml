@@ -1,5 +1,5 @@
 version: '2'
 services:
-  php-dev:
+  docker-php:
     build: .
     image: itsjeffro/php-dev:7.1
