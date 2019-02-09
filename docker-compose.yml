@@ -1,0 +1,5 @@
+version: '2'
+services:
+  php-dev:
+    build: .
+    image: itsjeffro/php-dev:7.1
