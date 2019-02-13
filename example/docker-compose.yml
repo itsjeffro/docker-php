@@ -17,6 +17,8 @@ services:
   web_db:
     image: mysql
     container_name: web_db
+    volumes:
+      - ./environment/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=changeme
     network_mode: "bridge"
