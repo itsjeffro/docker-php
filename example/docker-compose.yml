@@ -1,0 +1,22 @@
+version '2':
+services:
+  web_app:
+    image: itsjeff/dev-php:7.1
+    container_name: web_app
+    volumes:
+      - .:/var/www/html
+      - ./nginx/default:/etc/nginx/sites-enabled/default
+    links:
+      - web_db
+    environment:
+      - VIRTUAL_HOST=local.webapp.com
+      - VIRTUAL_PORT=80
+    extra_hosts:
+      - "local.webapp.com.127.0.0.1"
+    network_mode: "bridge"
+  web_db:
+    image: mysql
+    container_name: web_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=changeme
+    network_mode: "bridge"

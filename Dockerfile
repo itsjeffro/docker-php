@@ -13,10 +13,15 @@ RUN apt-get update && apt-get -y install nginx \
 	php7.1-curl \
 	php7.1-zip
 
-# Add nginx daemon
+# Add nginx
 RUN mkdir /etc/service/nginx
 COPY services/nginx.sh /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
+
+# Add php-fpm
+RUN mkdir /etc/service/phpfpm
+COPY services/phpfpm.sh /etc/service/phpfpm/run
+RUN chmod +x /etc/service/phpfpm/run
 
 # Terminal environment
 ENV TERM=xterm
@@ -27,4 +32,3 @@ EXPOSE 80 9000
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
