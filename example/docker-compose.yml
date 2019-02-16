@@ -15,7 +15,7 @@ services:
       - "local.webapp.com.127.0.0.1"
     network_mode: "bridge"
   web_db:
-    image: mysql
+    image: mysql:5.6
     container_name: web_db
     volumes:
       - ./environment/mysql:/var/lib/mysql

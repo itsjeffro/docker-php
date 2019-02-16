@@ -5,12 +5,17 @@ CMD ["/sbin/my_init"]
 RUN add-apt-repository -y ppa:ondrej/php
 
 RUN apt-get update && apt-get -y install nginx \
+	openssh-client \
 	php7.1-cli \
-	php7.1-fpm \
-	php7.1-mysql \
-	php7.1-xml \
-	php7.1-mcrypt \
 	php7.1-curl \
+	php7.1-fpm \
+	php7.1-gd \
+	php7.1-mbstring \
+	php7.1-mcrypt \
+	php7.1-mysql \
+	php7.1-soap \
+	php7.1-xdebug \
+	php7.1-xml \
 	php7.1-zip
 
 # Add nginx
