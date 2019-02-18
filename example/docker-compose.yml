@@ -1,7 +1,7 @@
 version '2':
 services:
   web_app:
-    image: itsjeff/dev-php:7.1
+    image: itsjeff/dev-php:7.2
     container_name: web_app
     volumes:
       - .:/var/www/html
