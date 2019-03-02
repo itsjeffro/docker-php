@@ -1,24 +1,14 @@
-version '2':
+version: '2'
 services:
   web_app:
-    image: itsjeff/dev-php:7.1
+    image: itsjeff/docker-php7.2:latest
     container_name: web_app
     volumes:
       - .:/var/www/html
       - ./nginx/default:/etc/nginx/sites-enabled/default
-    links:
-      - web_db
     environment:
-      - VIRTUAL_HOST=local.webapp.com
+      - VIRTUAL_HOST=local.demo.com
       - VIRTUAL_PORT=80
     extra_hosts:
-      - "local.webapp.com.127.0.0.1"
-    network_mode: "bridge"
-  web_db:
-    image: mysql:5.6
-    container_name: web_db
-    volumes:
-      - ./environment/mysql:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=changeme
+      - "local.demo.com.:127.0.0.1"
     network_mode: "bridge"

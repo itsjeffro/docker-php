@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-/usr/sbin/service php7.1-fpm start
+/usr/sbin/php-fpm7.2 -F
