@@ -5,9 +5,14 @@ $details = explode('+', phpversion());
 <head>
     <title>Docker PHP</title>
     <style>
+	* {
+	    box-sizing: border-box;
+        }
         body {
 	    font-family: helvetica, sans-serif;
-            color: #333;
+	    color: #333;
+            margin: 0;
+            padding: 0;
 	}
 	.details {
             position: absolute;
