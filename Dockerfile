@@ -17,13 +17,14 @@ RUN apt-get update && apt-get -y install nginx \
         php7.2-xml \
         php7.2-zip
 
+RUN mkdir -p /var/run/php
+
 # Add nginx
 RUN mkdir /etc/service/nginx
 COPY services/nginx.sh /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
 
 # Create directory and add php-fpm service
-RUN mkdir -p /var/run/php
 RUN mkdir /etc/service/phpfpm
 COPY services/phpfpm.sh /etc/service/phpfpm/run
 RUN chmod +x /etc/service/phpfpm/run
