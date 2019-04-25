@@ -1,8 +1,8 @@
 version: '2'
 services:
-  web_app:
+  app_web:
     image: itsjeff/docker-php7.2:latest
-    container_name: web_app
+    container_name: app_web
     volumes:
       - .:/var/www/html
       - ./nginx/default:/etc/nginx/sites-enabled/default
@@ -11,4 +11,12 @@ services:
       - VIRTUAL_PORT=80
     extra_hosts:
       - "local.demo.com.:127.0.0.1"
+    links:
+      - redis
+    network_mode: "bridge"
+  app_redis:
+    image: redis
+    container_name: app_redis
+    volumes:
+      - ./redis:/data
     network_mode: "bridge"
