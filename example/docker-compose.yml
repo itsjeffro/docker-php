@@ -12,7 +12,7 @@ services:
     extra_hosts:
       - "local.demo.com.:127.0.0.1"
     links:
-      - redis
+      - app_redis
     network_mode: "bridge"
   app_redis:
     image: redis
