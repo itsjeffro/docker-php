@@ -12,7 +12,7 @@ docker run --name proxy -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro 
 ````
 
 ### Run example web application
-Next, you may run the example web application.
+Next, you may run the example web application after adding `127.0.0.1 local.demo.com` to your host file.
 
 ```
 docker-compose up -d
