@@ -22,12 +22,12 @@ RUN mkdir -p /var/run/php
 
 # Add nginx
 RUN mkdir /etc/service/nginx
-COPY services/nginx.sh /etc/service/nginx/run
+ADD services/nginx.sh /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
 
 # Create directory and add php-fpm service
 RUN mkdir /etc/service/phpfpm
-COPY services/phpfpm.sh /etc/service/phpfpm/run
+ADD services/phpfpm.sh /etc/service/phpfpm/run
 RUN chmod +x /etc/service/phpfpm/run
 
 # Terminal environment
