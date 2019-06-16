@@ -33,6 +33,14 @@ RUN chmod +x /etc/service/phpfpm/run
 # Terminal environment
 ENV TERM=xterm
 
+# Xdebug
+RUN echo "xdebug.default_enable=0" >> /etc/php/7.2/fpm/php.ini \
+    && echo "xdebug.remote_enable=1" >> /etc/php/7.2/fpm/php.ini \
+    && echo "xdebug.remote_autostart=1" >> /etc/php/7.2/fpm/php.ini \
+    && echo "xdebug.remote_port=9000" >> /etc/php/7.2/fpm/php.ini \
+    && echo 'xdebug.remote_connect_back=${XDEBUG_REMOTE_CONNECT_BACK}' >> /etc/php/7.2/fpm/php.ini \
+    && echo 'xdebug.remote_host=${XDEBUG_REMOTE_HOST}' >> /etc/php/7.2/fpm/php.ini
+
 WORKDIR /var/www/html
 
 EXPOSE 80 9000
