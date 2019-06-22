@@ -17,3 +17,21 @@ Next, you may run the example web application after adding `127.0.0.1 local.demo
 ```
 docker-compose up -d
 ```
+
+## Docker environment file
+
+A `.docker.env.example` is included which allows variables, such as for xdebug to be set.
+
+```
+cp .docker.env.example .docker.env
+```
+
+### Xdebug on Windows
+If you're running the Docker version for Windows 10 Home edition, which requires running Docker in a VM, you may have to get the remote host ip using...
+
+```
+ipconfig
+```
+
+### Xdebug on Linux
+TBA
