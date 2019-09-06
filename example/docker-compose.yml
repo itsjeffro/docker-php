@@ -5,7 +5,7 @@ services:
     container_name: app_web
     volumes:
       - .:/var/www/html
-      - ./nginx/default:/etc/nginx/sites-enabled/default
+      - ./environment/nginx/default:/etc/nginx/sites-enabled/default
     environment:
       - VIRTUAL_HOST=local.demo.com
       - VIRTUAL_PORT=80
