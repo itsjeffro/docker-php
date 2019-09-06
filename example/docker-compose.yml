@@ -14,10 +14,24 @@ services:
       - "local.demo.com.:127.0.0.1"
     links:
       - app_redis
+      - app_db
     network_mode: "bridge"
   app_redis:
     image: redis
     container_name: app_redis
     volumes:
       - ./environment/redis:/data
+    network_mode: "bridge"
+  app_db:
+    image: mysql:5.7
+    container_name: app_db
+    volumes:
+      - ./environment/mysql:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
     network_mode: "bridge"
