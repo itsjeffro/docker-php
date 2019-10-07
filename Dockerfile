@@ -33,11 +33,17 @@ RUN chmod +x /etc/service/phpfpm/run
 # Terminal environment
 ENV TERM=xterm
 
+# Opcache
+RUN sed -i 's/;opcache.enable=1/opcache.enable=1/g' /etc/php/7.2/fpm/php.ini \
+    && sed -i 's/;opcache.memory_consumption=128/opcache.memory_consumption=192/g' /etc/php/7.2/fpm/php.ini \
+    && sed -i 's/;opcache.max_accelerated_files=10000/opcache.max_accelerated_files=20000/g' /etc/php/7.2/fpm/php.ini \
+    && sed -i 's/;opcache.revalidate_freq=2/opcache.revalidate_freq=0/g' /etc/php/7.2/fpm/php.ini \
+    && sed -i 's/;opcache.interned_strings_buffer=8/opcache.interned_strings_buffer=16/g' /etc/php/7.2/fpm/php.ini
+
 # Xdebug
 RUN echo "xdebug.default_enable=0" >> /etc/php/7.2/fpm/php.ini \
     && echo "xdebug.remote_enable=1" >> /etc/php/7.2/fpm/php.ini \
-    && echo "xdebug.remote_autostart=1" >> /etc/php/7.2/fpm/php.ini \
-    && echo "xdebug.remote_port=9000" >> /etc/php/7.2/fpm/php.ini \
+    && echo "xdebug.remote_autostart=0" >> /etc/php/7.2/fpm/php.ini \
     && echo 'xdebug.remote_connect_back=${XDEBUG_REMOTE_CONNECT_BACK}' >> /etc/php/7.2/fpm/php.ini \
     && echo 'xdebug.remote_host=${XDEBUG_REMOTE_HOST}' >> /etc/php/7.2/fpm/php.ini
 
