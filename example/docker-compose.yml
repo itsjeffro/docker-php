@@ -11,7 +11,7 @@ services:
       - VIRTUAL_PORT=80
     env_file: .docker.env
     extra_hosts:
-      - "local.demo.com.:127.0.0.1"
+      - "local.demo.com:127.0.0.1"
     links:
       - app_redis
       - app_db
