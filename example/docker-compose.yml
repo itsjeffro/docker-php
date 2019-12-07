@@ -27,7 +27,7 @@ services:
     container_name: app_db
     volumes:
       - ./environment/mysql:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
+    command: "--default-authentication-plugin=mysql_native_password --innodb-use-native-aio=0"
     ports:
       - "3306"
     restart: always
