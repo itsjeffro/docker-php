@@ -47,10 +47,25 @@ $ cp .docker.env.example .docker.env
 
 #### Windows
 
-If you're running the Docker version for Windows 10 Home edition which requires running Docker in a VM, you may have to get the remote host ip using...
+If you're running the Docker version for Windows 10 Home edition which requires running Docker in a VM you may have to get the remote host ip using `ipconfig`.
+
+Once you have your ip address you may add it to `XDEBUG_REMOTE_HOST` in the `.docker.env` file.
 
 ```
 $ ipconfig
+```
+```
+## Output
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter VirtualBox Host-Only Network:
+
+   Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : <your-ipv4-address>
 ```
 
 #### Linux
@@ -107,4 +122,27 @@ $ docker ps
 # Example output
 
 7c46cbe913fa   mysql:5.7   "docker-entrypoint.s…"   7 minutes ago   Up 7 minutes   33060/tcp, 0.0.0.0:32790->3306/tcp   app_db
+```
+
+## Xdebug
+
+### VSCode
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9000,
+            "pathMappings": {
+                "/var/www/html": "${workspaceRoot}/example",
+                "/var/www/html/public": "${workspaceRoot}/example/public"
+            }
+        }
+    ]
+}
 ```
