@@ -1,5 +1,16 @@
 # Example application
 
+Contents
+
+* Introduction
+* Getting started
+    * Setup proxy Docker container
+    * Setup web app Docker container
+* MySQL
+    * Connection options
+* Xdebug
+    * .docker.env configuration
+    * Client options
 
 ## Introduction
 
@@ -11,7 +22,7 @@ The example application currently comes with the following services in the `dock
 
 ## Getting started
 
-### 1. Proxy Docker container
+### Setup Proxy Docker container
 
 The example application is currently setup to use jwilders nginx proxy docker container. This will allow running multiple applications that will share port 80.
 
@@ -37,42 +48,13 @@ Starts container with the name `proxy`.
 $ docker start proxy
 ```
 
-### 2. Setting up Xdebug
+### Setup web app Docker container
 
 Create the `.docker.env` from the provided example.
 
 ```
 $ cp .docker.env.example .docker.env
 ```
-
-#### Windows
-
-If you're running the Docker version for Windows 10 Home edition which requires running Docker in a VM you may have to get the remote host ip using `ipconfig`.
-
-Once you have your ip address you may add it to `XDEBUG_REMOTE_HOST` in the `.docker.env` file.
-
-```
-$ ipconfig
-```
-```
-## Output
-
-Ethernet adapter Ethernet:
-
-   Media State . . . . . . . . . . . : Media disconnected
-   Connection-specific DNS Suffix  . :
-
-Ethernet adapter VirtualBox Host-Only Network:
-
-   Connection-specific DNS Suffix  . :
-   IPv4 Address. . . . . . . . . . . : <your-ipv4-address>
-```
-
-#### Linux
-
-TBA
-
-### 3. Web app Docker container
 
 #### Update host file
 
@@ -88,7 +70,7 @@ You can now view http://local.demo.com in your browser.
 
 ## Mysql
 
-### Connecting
+### Connection options
 
 #### Via terminal
 
@@ -126,7 +108,40 @@ $ docker ps
 
 ## Xdebug
 
-### VSCode
+### .docker.env configuration
+
+Prior to actually debugging your code you may need to set some of the values in your `.docker.ev` file.
+
+#### Windows
+
+If you're running the Docker version for Windows 10 Home edition which requires running Docker in a VM you may have to get the remote host ip using `ipconfig`.
+
+Once you have your ip address you may add it to `XDEBUG_REMOTE_HOST` in the `.docker.env` file.
+
+```
+$ ipconfig
+```
+```
+## Output
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter VirtualBox Host-Only Network:
+
+   Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : <your-ipv4-address>
+```
+
+#### Linux
+
+TBA
+
+### Client options
+
+#### Via Visual Studi Code
 
 ```json
 {
