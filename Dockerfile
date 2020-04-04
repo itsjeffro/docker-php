@@ -16,7 +16,8 @@ RUN apt-get update && apt-get -y install nginx \
         php7.2-xdebug \
         php7.2-xml \
         php7.2-zip \
-        php7.2-redis
+        php7.2-redis \
+        php7.2-bcmath
 
 RUN mkdir -p /var/run/php
 
