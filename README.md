@@ -1,4 +1,4 @@
-# Docker PHP
+# Docker PHP 7.4
 
 ## Getting Started
 
