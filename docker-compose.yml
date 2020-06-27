@@ -2,4 +2,4 @@ version: '2'
 services:
   docker-php:
     build: .
-    image: itsjeff/docker-php7.2
+    image: itsjeff/docker-php7.4
