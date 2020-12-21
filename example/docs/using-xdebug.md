@@ -35,6 +35,10 @@ Ethernet adapter VirtualBox Host-Only Network:
    IPv4 Address. . . . . . . . . . . : <your-ipv4-address>
 ```
 
+### Windows WSL2
+
+TBA
+
 ### Linux
 
 TBA
