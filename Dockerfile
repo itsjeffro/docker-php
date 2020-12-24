@@ -42,10 +42,7 @@ RUN sed -i 's/;opcache.enable=1/opcache.enable=1/g' /etc/php/7.4/fpm/php.ini \
     && sed -i 's/;opcache.interned_strings_buffer=8/opcache.interned_strings_buffer=16/g' /etc/php/7.4/fpm/php.ini
 
 # Xdebug
-RUN echo 'xdebug.remote_enable=${XDEBUG_REMOTE_ENABLE}' >> /etc/php/7.4/fpm/php.ini \
-    && echo 'xdebug.remote_autostart=${XDEBUG_REMOTE_AUTOSTART}' >> /etc/php/7.4/fpm/php.ini \
-    && echo 'xdebug.remote_connect_back=${XDEBUG_REMOTE_CONNECT_BACK}' >> /etc/php/7.4/fpm/php.ini \
-    && echo 'xdebug.remote_host=${XDEBUG_REMOTE_HOST}' >> /etc/php/7.4/fpm/php.ini
+COPY ./environment/php/xdebug.ini /etc/php/7.4/fpm/conf.d/xdebug.ini
 
 WORKDIR /var/www/html
 
