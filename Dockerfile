@@ -4,7 +4,7 @@ CMD ["/sbin/my_init"]
 
 RUN add-apt-repository -y ppa:ondrej/php
 
-RUN apt-get update && apt-get -y install nginx \
+RUN apt-get update && apt-get -y install nginx sqlite3 \
         openssh-client \
         php7.4-cli \
         php7.4-curl \
@@ -17,7 +17,10 @@ RUN apt-get update && apt-get -y install nginx \
         php7.4-xml \
         php7.4-zip \
         php7.4-redis \
-        php7.4-bcmath
+        php7.4-bcmath \
+        php7.4-sqlite3
+
+RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
 RUN mkdir -p /var/run/php
 
