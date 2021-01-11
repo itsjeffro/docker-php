@@ -1,7 +1,7 @@
 version: '2'
 services:
   app_web:
-    image: itsjeff/docker-php7.4
+    image: itsjeff/dev-php:latest
     container_name: app_web
     volumes:
       - .:/var/www/html
