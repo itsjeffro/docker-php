@@ -49,7 +49,7 @@ COPY ./environment/php/xdebug.ini /etc/php/7.4/fpm/conf.d/xdebug.ini
 
 WORKDIR /var/www/html
 
-EXPOSE 80 9000
+EXPOSE 80 443 9000
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
