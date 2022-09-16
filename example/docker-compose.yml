@@ -1,11 +1,8 @@
 version: '3.7'
 
 networks:
-  web:
+  public:
     external: true
-
-  demo-com-network:
-    internal: true
 
 services:
   demo_com_web:
@@ -20,13 +17,11 @@ services:
       - demo_com_db
       - demo_com_redis
     labels:
-      - traefik.enable=true
-      - traefik.docker.network=web
-      - traefik.http.routers.demo_com_web.rule=Host(`local.demo.com`)
-      - traefik.http.routers.demo_com_web.entrypoints=web
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:local.demo.com"
+      - "traefik.port=80"
     networks:
-      - demo-com-network
-      - web
+      - public
 
   demo_com_redis:
     image: redis
@@ -45,5 +40,4 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: changeme
     networks:
-      - demo-com-network
-      - web
+      - public
