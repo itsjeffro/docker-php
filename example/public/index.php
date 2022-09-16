@@ -7,12 +7,12 @@ $details = explode('+', phpversion());
     <style>
 	* {
 	    box-sizing: border-box;
-        }
-        body {
-	    font-family: helvetica, sans-serif;
-	    color: #333;
-            margin: 0;
-            padding: 0;
+    }
+    body {
+        font-family: helvetica, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
 	}
 	.details {
             position: absolute;
