@@ -9,7 +9,11 @@ Xdebug is currently setup to not start automatically. Instead you can activate t
 
 ## Docker ENV
 
-Prior to actually debugging your code you may need to set some of the values in your `.docker.ev` file.
+Prior to actually debugging your code you may need to set some values in your `.docker.ev` file.
+
+### Mac
+
+Set `XDEBUG_REMOTE_HOST=host.docker.internal`
 
 ### Windows
 
