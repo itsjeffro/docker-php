@@ -1,26 +1,19 @@
 version: '3'
 
 networks:
-  web:
+  public:
     external: true
 
 services:
   traefik:
     image: traefik:latest
     container_name: traefik_proxy
-    command:
-      - "--log.level=DEBUG"
-      - "--api.insecure=true"
-
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-
-      - "--entrypoints.web.address=:80"
     restart: always
     ports:
       - "80:80"
       - "8080:8080"
     networks:
-      - web
+      - public
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.toml:/traefik.toml
